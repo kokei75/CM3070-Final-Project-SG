@@ -1,0 +1,127 @@
+/* compact centred auth card */
+.auth{
+  width: 320px;
+  padding: 26px 28px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* field container (label + input stack) */
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+/* label styling (uppercase look with spacing) */
+label{
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: rgba(243,244,246,0.92);
+}
+
+/* input fields */
+input{
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #f3f4f6;
+  outline: none;
+}
+
+/* placeholder text */
+::placeholder{
+  color: rgba(243,244,246,0.55);
+}
+
+/* input focus state */
+input:focus{
+  border-color: rgba(224,242,254,0.55);
+}
+
+/* primary button */
+.btn{
+  width: 140px;
+  margin: 8px auto 0;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.92);
+  color: #0f1422;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* button hover state */
+.btn:hover{
+  opacity: 0.92;
+}
+
+/* spacing for helper text */
+.small{
+  margin-top: 20px;
+}
+
+/* back link above form */
+.back{
+  display: block;
+  width: 320px;
+  margin: 6px auto 10px;
+  text-align: left;
+  font-size: 13px;
+  color: rgba(243,244,246,0.8);
+}
+
+/* back link hover */
+.back:hover{
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* wrapper for password input + eye icon */
+.password-wrapper{
+  position: relative;
+  width: 100%;
+}
+
+/* password input with space for icon */
+.password-wrapper input{
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 44px;
+}
+
+/* eye icon button */
+.eye{
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+/* eye hover state */
+.eye:hover{
+  opacity: 1;
+}
+
+/* error message text */
+.error-text{
+  color: #d62828;
+  font-size: 13px;
+  display: none;
+  margin-top: 6px;
+}

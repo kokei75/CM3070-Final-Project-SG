@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!--page title-->
+  <title>Resident Dashboard</title>
+
+  <!--styles-->
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/resident.css">
+</head>
+
+<body class="app-page">
+
+  <!--top bar-->
+  <header class="topbar">
+    Flood Monitoring System Dashboard - Resident View
+  </header>
+
+  <div class="app">
+
+    <!--sidebar-->
+    <aside class="sidebar">
+      <h2 style="color:#f3f4f6;">Hello</h2>
+      <nav class="menu">
+        <a class="active" href="/resident">Dashboard</a>
+        <a href="/">Logout</a>
+      </nav>
+    </aside>
+
+    <!--main content-->
+    <main class="main">
+      <h1 class="title">Dashboard</h1>
+
+      <!--dashboard cards-->
+      <section class="quick-grid">
+
+        <!--flood status-->
+        <div class="panel">
+          <h2 class="panelOne-title">Flood Status</h2>
+          <div id="floodStatus" class="panelOne-status">—</div>
+          <p id="floodMessage" class="panelOne-reason">—</p>
+        </div>
+
+        <!--water level-->
+        <div class="panel">
+          <h2 class="panelTwo-title">Water Level</h2>
+
+          <!--main value-->
+          <div id="waterTrend" class="panelTwo-value">—</div>
+
+          <!--status-->
+          <div class="panelTwo-meta">
+            <div><span>Condition</span><strong id="waterStatus">—</strong></div>
+          </div>
+        </div>
+
+        <!--weather-->
+        <div class="panel">
+          <h2 class="panelThree-title">Weather Conditions</h2>
+
+          <div class="panelThree-list">
+            <div class="panelThree-row">
+              <span>Rain</span>
+              <strong id="rain">—</strong>
+            </div>
+
+            <div class="panelThree-row">
+              <span>Temperature</span>
+              <strong id="temp">—</strong>
+            </div>
+
+            <div class="panelThree-row">
+              <span>Humidity</span>
+              <strong id="humidity">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <!--alerts-->
+        <div class="panel">
+          <h2 class="panelFour-title">Alerts</h2>
+
+          <div id="alertText" class="panelFour-main">No active alerts</div>
+          <p id="alertReason" class="panelFour-reason">—</p>
+        </div>
+
+        <!--recommended actions-->
+        <div class="panel">
+          <h2 class="panelFour-title">What You Should Do</h2>
+
+          <div id="actionText" class="panelFour-main">—</div>
+        </div>
+
+        <!--last updated-->
+        <div class="panel">
+          <h2 class="panelFour-title">Last Updated</h2>
+
+          <div id="lastUpdated" class="panelFour-main">—</div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!--script to update dashboard data-->
+  <script src="/resident.js"></script>
+</body>
+</html>

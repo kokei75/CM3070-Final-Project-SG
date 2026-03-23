@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!--page title-->
+  <title>Authority Dashboard</title>
+
+  <!--styles-->
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/authority.css">
+</head>
+
+<body class="app-page">
+  <!--top header bar-->
+  <header class="topbar">
+    Flood Monitoring System Dashboard - Authority View
+  </header>
+
+  <div class="app">
+    <!--sidebar navigation-->
+    <aside class="sidebar">
+      <h2 style="color:#f3f4f6;">Hello, Sarah</h2>
+      <nav class="menu">
+        <a class="active" href="/authority">Dashboard</a>
+        <a href="/authority/nodes">Nodes</a>
+        <a href="/">Logout</a>
+      </nav>
+    </aside>
+
+    <!--main dashboard content-->
+    <main class="main">
+      <h1 class="title">Quick View</h1>
+
+      <section class="quick-grid">
+        <!--system status panel-->
+        <div class="panel big-left panelOne">
+          <div class="panelOne-header">
+            <h2 class="panelOne-title">System Status</h2>
+            <div class="panelOne-updated">
+              Last updated: <span id="lastUpdated">—</span>
+            </div>
+          </div>
+
+          <!--alert level section-->
+          <div class="panelOne-section">
+            <h3 class="panelOne-sectionTitle">Alert Level</h3>
+
+            <div id="alertStatusText" class="panelOne-status">—</div>
+            <p id="alertReason" class="panelOne-reason">—</p>
+
+            <div class="panelOne-meta">
+              <div class="panelOne-row">
+                <span class="panelOne-label">Triggered by</span>
+                <span id="alertTriggeredBy" class="panelOne-value">—</span>
+              </div>
+
+              <div class="panelOne-row">
+                <span class="panelOne-label">Current level for</span>
+                <span id="alertDuration" class="panelOne-value">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!--system health section-->
+          <div class="panelOne-section panelOne-sectionDivider">
+            <h3 class="panelOne-sectionTitle">System Health</h3>
+
+            <div id="healthStatusText" class="panelOne-status panelOne-statusSmall">—</div>
+            <p id="healthReason" class="panelOne-reason panelOne-reasonSmall">—</p>
+
+            <div class="panelOne-meta">
+              <div class="panelOne-row">
+                <span class="panelOne-label">Primary issue</span>
+                <span id="healthIssue" class="panelOne-value">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--latest water level panel-->
+        <div class="panel top-right panelTwo">
+          <h2 class="panelTwo-title">Latest Water Level</h2>
+          <div id="waterValue" class="panelTwo-value">—</div>
+
+          <div class="panelTwo-meta">
+            <div><span>Status</span><strong id="waterStatus">—</strong></div>
+            <div><span>Trend</span><strong id="waterTrend">—</strong></div>
+            <div><span>Last seen</span><strong id="waterSeen">—</strong></div>
+          </div>
+        </div>
+
+        <!--node health panel-->
+        <div class="panel mid-right panelThree">
+          <h2 class="panelThree-title">Node Health</h2>
+
+          <div class="panelThree-list">
+            <div class="panelThree-row">
+              <div class="panelThree-left">
+                <span class="panelThree-name">WATER</span>
+                <span id="healthWaterDot" class="panelThree-dot">●</span>
+                <span id="healthWaterStatus" class="panelThree-statusText">—</span>
+              </div>
+              <div id="healthWaterSeen" class="panelThree-right">—</div>
+            </div>
+
+            <div class="panelThree-row">
+              <div class="panelThree-left">
+                <span class="panelThree-name">CITY</span>
+                <span id="healthCityDot" class="panelThree-dot">●</span>
+                <span id="healthCityStatus" class="panelThree-statusText">—</span>
+              </div>
+              <div id="healthCitySeen" class="panelThree-right">—</div>
+            </div>
+
+            <div class="panelThree-row">
+              <div class="panelThree-left">
+                <span class="panelThree-name">WALL</span>
+                <span id="healthWallDot" class="panelThree-dot">●</span>
+                <span id="healthWallStatus" class="panelThree-statusText">—</span>
+              </div>
+              <div id="healthWallSeen" class="panelThree-right">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!--city node data panel-->
+        <div class="panel big-bottom panelFour">
+          <h2 class="panelFour-title">City Node Conditions</h2>
+
+          <div class="panelFour-grid">
+            <div class="panelFour-item">
+              <span>Temperature</span>
+              <strong id="cityTemp">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span>Humidity</span>
+              <strong id="cityHum">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span title="Derived from raindrop sensor surface conductivity">Surface Wetness</span>
+              <strong id="citySurfaceWet">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span>Pressure</span>
+              <strong id="cityPress">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span>Altitude</span>
+              <strong id="cityAlt">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span>Last seen</span>
+              <strong id="citySeen">—</strong>
+            </div>
+
+            <div class="panelFour-item">
+              <span>City Status</span>
+              <strong id="cityStatus">—</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--dashboard script-->
+  <script src="/authority.js"></script>
+</body>
+</html>

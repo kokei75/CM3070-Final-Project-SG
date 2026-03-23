@@ -1,0 +1,68 @@
+/* root colour and spacing variables */
+:root{
+  --bg: #343b52; /* page background */
+  --text: #f3f4f6;
+  --muted: rgba(243,244,246,0.75);
+
+  --card: #0f1422; /* card background */
+  --card2: rgba(255,255,255,0.06); /* input background */
+
+  --link: #e0f2fe;
+  --shadow: 0 10px 25px rgba(0,0,0,0.35);
+  --radius: 12px;
+}
+
+/* use border-box sizing everywhere */
+*{ box-sizing: border-box; }
+
+/* base body styling */
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* general centred page wrapper */
+.page{
+  width: min(1100px, 92vw);
+  text-align: center;
+  padding: 60px 0;
+}
+
+/* big heading used across pages */
+.big{
+  margin: 0 0 40px;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* shared card style */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* default and visited link style */
+a, a:visited{
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* hover state for links */
+a:hover{
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* small helper text */
+.small{
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}

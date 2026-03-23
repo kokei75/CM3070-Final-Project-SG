@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resident Login</title>
+
+  <!--styles-->
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/generalLogin.css">
+</head>
+<body>
+  <main class="page">
+    <h1 class="big">RESIDENT LOGIN</h1>
+
+    <!--back to home-->
+    <a class="back" href="/index.html">← Back to home</a>
+
+    <!--login form-->
+    <form class="card auth" id="residentLoginForm">
+
+      <!--username-->
+      <div class="field">
+        <label for="user">USERNAME:</label>
+        <input id="user" name="username" type="text" required>
+      </div>
+
+      <!--password-->
+      <div class="field">
+        <label for="pass">PASSWORD:</label>
+
+        <div class="password-wrapper">
+          <input id="pass" name="password" type="password" required>
+          <!--toggle password-->
+          <button type="button" id="togglePassword" class="eye">👁️</button>
+        </div>
+
+        <!--error message-->
+        <p id="loginError" class="error-text"></p>
+      </div>
+
+      <button class="btn" type="submit">LOGIN</button>
+    </form>
+
+    <!--signup redirect-->
+    <p class="small">
+      No account? <a href="/residentSignup.html">Sign up</a>
+    </p>
+  </main>
+
+  <script>
+    //get elements
+    const form = document.getElementById("residentLoginForm");
+    const passwordInput = document.getElementById("pass");
+    const error = document.getElementById("loginError");
+    const toggle = document.getElementById("togglePassword");
+
+    //toggle password visibility
+    toggle.addEventListener("click", () => {
+      const isHidden = passwordInput.type === "password";
+      passwordInput.type = isHidden ? "text" : "password";
+      toggle.textContent = isHidden ? "🙈" : "👁️";
+    });
+
+    //clear error when typing
+    form.addEventListener("input", () => {
+      error.style.display = "none";
+      error.textContent = "";
+    });
+
+    //handle login request
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      //prepare form data
+      const formData = new URLSearchParams();
+      formData.append("username", form.username.value.trim());
+      formData.append("password", form.password.value.trim());
+
+      try {
+        //send login request
+        const res = await fetch("/login/resident", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: formData.toString()
+        });
+
+        //redirect if success
+        if (res.redirected) {
+          window.location.href = res.url;
+          return;
+        }
+
+        const text = await res.text();
+
+        //invalid login
+        if (res.status === 401) {
+          error.textContent = "Invalid username or password";
+          error.style.display = "block";
+          return;
+        }
+
+        //rate limited
+        if (res.status === 429) {
+          error.textContent = "Too many login attempts. Please try again later.";
+          error.style.display = "block";
+          return;
+        }
+
+        //other errors
+        if (!res.ok) {
+          error.textContent = text || "Something went wrong. Please try again.";
+          error.style.display = "block";
+        }
+
+      } catch (err) {
+        //server unreachable
+        error.textContent = "Unable to connect to the server.";
+        error.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!--page setup-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Authority Node View</title>
+
+  <!--styles-->
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/authority.css">
+  <link rel="stylesheet" href="/styles/authorityNodes.css">
+</head>
+
+<body class="app-page">
+
+  <!--top bar-->
+  <header class="topbar">
+    Flood Monitoring System Dashboard - Authority View
+  </header>
+
+  <div class="app">
+
+    <!--sidebar-->
+    <aside class="sidebar">
+      <h2 style="color:#f3f4f6;">Hello, Sarah</h2>
+      <nav class="menu">
+        <a href="/authority">Dashboard</a>
+        <a class="active" href="/authority/nodes">Nodes</a>
+        <a href="/">Logout</a>
+      </nav>
+    </aside>
+
+    <!--main content-->
+    <main class="main">
+      <h1 class="title">Node Overview</h1>
+
+      <section class="authority-nodes">
+
+        <!--water node-->
+        <section class="node-card">
+          <div class="card-head">
+            <h2>Water Body Node</h2>
+            <span class="badge offline" id="waterOnline">OFFLINE</span>
+          </div>
+
+          <!--latest reading-->
+          <p class="last-updated">Latest reading: <span id="waterTime">--</span></p>
+
+          <!--current data-->
+          <div class="data-grid">
+            <div class="data-item"><span class="label">Ultrasonic</span><span id="waterCm" class="value">--</span></div>
+            <div class="data-item"><span class="label">Status</span><span id="waterStatus" class="value">--</span></div>
+            <div class="data-item"><span class="label">RSSI</span><span id="waterRssi" class="value">--</span></div>
+          </div>
+
+          <!--history table-->
+          <div class="history-block">
+            <h3 class="history-title">Recent Readings</h3>
+            <div class="table-wrap">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Reading</th>
+                    <th>Status</th>
+                    <th>RSSI</th>
+                  </tr>
+                </thead>
+                <tbody id="waterHistoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!--city node-->
+        <section class="node-card">
+          <div class="card-head">
+            <h2>City Node</h2>
+            <span class="badge offline" id="cityOnline">OFFLINE</span>
+          </div>
+
+          <!--latest reading-->
+          <p class="last-updated">Latest reading: <span id="cityTime">--</span></p>
+
+          <!--current data-->
+          <div class="data-grid">
+            <div class="data-item"><span class="label">Temp</span><span id="cityTemp" class="value">--</span></div>
+            <div class="data-item"><span class="label">Humidity</span><span id="cityHumidity" class="value">--</span></div>
+            <div class="data-item"><span class="label">Rain %</span><span id="cityRainPercent" class="value">--</span></div>
+            <div class="data-item"><span class="label">Pressure</span><span id="cityPressure" class="value">--</span></div>
+            <div class="data-item"><span class="label">Altitude</span><span id="cityAltitude" class="value">--</span></div>
+            <div class="data-item"><span class="label">Status</span><span id="cityStatus" class="value">--</span></div>
+          </div>
+
+          <!--history table-->
+          <div class="history-block">
+            <h3 class="history-title">Recent Readings</h3>
+            <div class="table-wrap">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Temp</th>
+                    <th>Humidity</th>
+                    <th>Rain %</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="cityHistoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!--flood wall node-->
+        <section class="node-card">
+          <div class="card-head">
+            <h2>Flood-Wall Node</h2>
+            <span class="badge offline" id="wallOnline">OFFLINE</span>
+          </div>
+
+          <!--latest reading-->
+          <p class="last-updated">Latest reading: <span id="wallTime">--</span></p>
+
+          <!--current data-->
+          <div class="data-grid">
+            <div class="data-item"><span class="label">State</span><span id="wallState" class="value">--</span></div>
+            <div class="data-item"><span class="label">Triggered By</span><span id="wallTriggeredBy" class="value">--</span></div>
+            <div class="data-item"><span class="label">RSSI</span><span id="wallRssi" class="value">--</span></div>
+          </div>
+
+          <!--history table-->
+          <div class="history-block">
+            <h3 class="history-title">Recent Readings</h3>
+            <div class="table-wrap">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>State</th>
+                    <th>Triggered By</th>
+                    <th>RSSI</th>
+                  </tr>
+                </thead>
+                <tbody id="wallHistoryBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </section>
+    </main>
+  </div>
+
+  <!--script to fetch and update node data-->
+  <script src="/authorityNodes.js"></script>
+</body>
+</html>
